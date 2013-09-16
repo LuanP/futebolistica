@@ -1,0 +1,4 @@
+*.py[cod]
+*.swp
+local_settings.py
+*.db
