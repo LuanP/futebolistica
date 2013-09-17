@@ -3,7 +3,7 @@
 from django.db import models
 
 
-class Stadium(models.model):
+class Stadium(models.Model):
     name = models.CharField(max_length=200)
 
 
