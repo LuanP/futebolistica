@@ -21,5 +21,5 @@ class Game(models.Model):
     stadium = models.ForeignKey('Stadium')
     judge = models.ForeignKey('Judge')
     date = models.DateField()
-    team_1 = models.ForeignKey('teams.Team')
-    team_2 = models.ForeignKey('teams.Team')
+    team_1 = models.ForeignKey('teams.Team', related_name=u'team_one')
+    team_2 = models.ForeignKey('teams.Team', related_name=u'team_two')

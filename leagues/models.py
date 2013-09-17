@@ -12,6 +12,3 @@ class League(models.Model):
 class Round(models.Model):
     games = models.ManyToManyField('games.Game')
     league = models.ForeignKey('League')
-
-    class Meta:
-        unique_together = ('games', 'league')
