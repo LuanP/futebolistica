@@ -9,14 +9,23 @@ class Team(models.Model):
     # flag = models.ImageField(upload_to='flags')
     players = models.ManyToManyField('Player', through='TeamPlayer')
 
+    def __unicode__(self):
+        return self.name
+
 
 class Position(models.Model):
     title = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.title
 
 
 class Player(models.Model):
     name = models.CharField(max_length=200)
     position = models.ForeignKey('Position')
+
+    def __unicode__(self):
+        return self.name
 
 
 class TeamPlayer(models.Model):
@@ -27,3 +36,6 @@ class TeamPlayer(models.Model):
 
     class Meta:
         unique_together = ('league', 'player')
+
+    def __unicode__(self):
+        return u'{} - {}'.format(self.player, self.team)
