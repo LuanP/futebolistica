@@ -7,8 +7,9 @@ class League(models.Model):
     name = models.CharField(max_length=200)
     period_start = models.DateField()
     period_end = models.DateField()
+    round_numbers = models.PositiveSmallIntegerField()
 
 
 class Round(models.Model):
-    games = models.ManyToManyField('games.Game')
     league = models.ForeignKey('League')
+    name = models.CharField(max_length=200)

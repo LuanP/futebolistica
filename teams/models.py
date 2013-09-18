@@ -16,13 +16,14 @@ class Position(models.Model):
 
 class Player(models.Model):
     name = models.CharField(max_length=200)
-    shirt_number = models.PositiveSmallIntegerField()
     position = models.ForeignKey('Position')
 
 
 class TeamPlayer(models.Model):
     team = models.ForeignKey('Team')
+    shirt_number = models.PositiveSmallIntegerField()
     player = models.ForeignKey('Player')
+    league = models.ForeignKey('leagues.League')
 
     class Meta:
-        unique_together = ('team', 'player')
+        unique_together = ('league', 'player')
