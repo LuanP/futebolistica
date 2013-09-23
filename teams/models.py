@@ -6,7 +6,7 @@ from django.db import models
 class Team(models.Model):
     name = models.CharField(max_length=200)
     abbr = models.CharField(max_length=3)
-    # flag = models.ImageField(upload_to='flags')
+    flag = models.ImageField(upload_to='flags')
     players = models.ManyToManyField('Player', through='TeamPlayer')
 
     def __unicode__(self):
