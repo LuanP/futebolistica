@@ -54,15 +54,15 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = '/tmp/static/'
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
-MEDIA_URL = os.path.join(STATIC_URL, 'media/')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'tmp/media/')
+MEDIA_URL = '/media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_DIR, STATIC_URL),
+    os.path.join(PROJECT_DIR, 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
