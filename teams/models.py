@@ -2,6 +2,8 @@
 
 from django.db import models
 
+from futebolistica.settings import MEDIA_ROOT
+
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
@@ -11,6 +13,10 @@ class Team(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_flag_url(self):
+        print MEDIA_ROOT
+        return u'{}{}'.format(MEDIA_ROOT, self.flag)
 
 
 class Position(models.Model):
