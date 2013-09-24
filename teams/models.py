@@ -2,7 +2,7 @@
 
 from django.db import models
 
-from futebolistica.settings import MEDIA_ROOT
+from futebolistica.settings import MEDIA_URL
 
 
 class Team(models.Model):
@@ -15,8 +15,7 @@ class Team(models.Model):
         return self.name
 
     def get_flag_url(self):
-        print MEDIA_ROOT
-        return u'{}{}'.format(MEDIA_ROOT, self.flag)
+        return u'{}{}'.format(MEDIA_URL, self.flag)
 
 
 class Position(models.Model):
