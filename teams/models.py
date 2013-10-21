@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from PIL import Image
 
 from futebolistica.settings import MEDIA_URL
 
@@ -16,6 +17,13 @@ class Team(models.Model):
 
     def get_flag_url(self):
         return u'{}{}'.format(MEDIA_URL, self.flag)
+
+    def save(self, *args, **kwargs):
+        image = Image.open(self.flag)
+        (width, height) = image.size
+        image = image.resize((25, 23), Image.ANTIALIAS)
+        super(Team, self).save(*args, **kwargs)
+        image.save(self.flag.path)
 
 
 class Position(models.Model):
