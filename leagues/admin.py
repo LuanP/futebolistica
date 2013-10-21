@@ -5,8 +5,12 @@ from django.contrib import admin
 from .models import League, Round
 
 
+class RoundInline(admin.TabularInline):
+    model = Round
+
+
 class LeagueAdmin(admin.ModelAdmin):
-    pass
+    inlines = [RoundInline, ]
 
 
 class RoundAdmin(admin.ModelAdmin):
