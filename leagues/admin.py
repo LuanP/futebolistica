@@ -2,6 +2,7 @@
 
 from django.contrib import admin
 
+from teams.admin import TeamPlayerInline
 from .models import League, Round
 
 
@@ -10,7 +11,7 @@ class RoundInline(admin.TabularInline):
 
 
 class LeagueAdmin(admin.ModelAdmin):
-    inlines = [RoundInline, ]
+    inlines = [RoundInline, TeamPlayerInline]
 
 
 class RoundAdmin(admin.ModelAdmin):

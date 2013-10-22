@@ -13,8 +13,12 @@ class PositionAdmin(admin.ModelAdmin):
     pass
 
 
+class TeamPlayerInline(admin.TabularInline):
+    model = TeamPlayer
+
+
 class PlayerAdmin(admin.ModelAdmin):
-    pass
+    inlines = [TeamPlayerInline, ]
 
 
 class TeamPlayerAdmin(admin.ModelAdmin):
