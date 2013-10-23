@@ -48,7 +48,10 @@ class TeamPlayer(models.Model):
     league = models.ForeignKey('leagues.League')
 
     class Meta:
-        unique_together = ('league', 'player')
+        unique_together = (
+            ('league', 'player'),
+            ('team', 'shirt_number', 'league'),
+        )
 
     def __unicode__(self):
         return u'{} - {}'.format(self.player, self.team)
