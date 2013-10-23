@@ -2,12 +2,21 @@
 
 {% block content %}
   <div class="row">
-    <ul class="list-unstyled">
-      {% for league in leagues %}
-        <li>
-          {{ league }} ({{ league.period_start }} - {{ league.period_end }}) - {{ league.round_numbers }} rodadas
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="col-lg-12">
+      <table class="table table-bordered">
+        <th>Campeonato</th>
+        <th>Data de início</th>
+        <th>Data de término</th>
+        <th>Rodadas</th>
+        {% for league in leagues %}
+          <tr>
+            <td>{{ league }}</td>
+            <td>{{ league.period_start }}</td>
+            <td>{{ league.period_end }}</td>
+            <td>{{ league.round_numbers }} rodadas</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
   </div>
 {% endblock %}
