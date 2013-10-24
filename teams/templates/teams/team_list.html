@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <tr>
+    <th>Bandeira</th>
+    <th>Nome</th>
+  </tr>
+  {% for team in team_list %}
+    <tr>
+      <td><img src="{{ team.get_flag_url }}" /></td>
+      <td>{{ team.name }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

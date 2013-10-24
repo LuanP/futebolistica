@@ -9,11 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', HomeView.as_view(), name='home'),
-    # url(r'^futebolistica/', include('futebolistica.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    url(r'^leagues/', include('leagues.urls', namespace='leagues')),
+    url(r'^teams/', include('teams.urls', namespace='teams')),
     url(r'^admin/', include(admin.site.urls)),
 )
