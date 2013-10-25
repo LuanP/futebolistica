@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.utils.text import slugify
 
 
 class League(models.Model):
@@ -8,6 +9,11 @@ class League(models.Model):
     period_start = models.DateField()
     period_end = models.DateField()
     round_numbers = models.PositiveSmallIntegerField()
+    slug = models.SlugField(max_length=200)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(League, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
