@@ -24,42 +24,47 @@
 </head>
 <body>
   <div class="container">
-    <div class="navbar navbar-default">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Futebolística</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Campeonatos <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              {% for league in leagues %}
-                <li><a href="#">{{ league }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Times <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              {% for team in teams %}
-                <li><a href="#"><img src="{{ team.get_flag_url }}" /> {{ team.name }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">{% block page_setting %}Início{% endblock%}</a></li>
-        </ul>
+    <div class="row">
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">Futebolística</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Campeonatos <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                {% for league in leagues %}
+                  <li><a href="#">{{ league }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Times <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                {% for team in teams %}
+                  <li><a href="#"><img src="{{ team.get_flag_url }}" /> {{ team.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">{% block page_setting %}Início{% endblock%}</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <div class="container">
-    {% block content %}{% endblock %}
+    <div class="row">
+      {% block title %}{% endblock %}
+      {% block content %}{% endblock %}
+    </div>
   </div>
 </body>
 </html>

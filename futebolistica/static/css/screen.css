@@ -5,3 +5,12 @@ body {
 .navbar {
     margin-bottom: 30px;
 }
+
+a, a:active, a:visited, a:link {
+    text-decoration: none;
+    color: #000;
+}
+
+.accordion-toggle:not(.collapsed) > .panel-heading {
+    background-color: #CCC;
+}
