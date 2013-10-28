@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 
+{% block title %}<h2>{{ game.game_round }}</h2>{% endblock %}
+
 {% block content %}
-{{ game }}
+  <table class="table">
+    <tr>
+      <th>Jogo</th>
+      <th>Juíz</th>
+      <th>Estádio</th>
+    </tr>
+    <tr>
+      <td>{{ game }}</td>
+      <td>{{ game.judge }}</td>
+      <td>{{ game.stadium }}</td>
+    </tr>
+  </table>
+
+  <p class="text-center"><a href="{% url "leagues:rounds" game.game_round.league.slug %}" class="btn btn-default">Voltar</a></p>
 {% endblock %}
