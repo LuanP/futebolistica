@@ -4,10 +4,6 @@ from django.views.generic import ListView
 from .models import League, Round
 
 
-class LeagueListView(ListView):
-    model = League
-
-
 class RoundListView(ListView):
     model = Round
 
