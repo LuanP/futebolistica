@@ -13,7 +13,7 @@
             <td>{{ league }}</td>
             <td>{{ league.period_start }}</td>
             <td>{{ league.period_end }}</td>
-            <td title="Clique para visualizar as rodadas"><a href="{% url 'leagues:rounds' league.slug %}">{{ league.round_numbers }} rodadas</a></td>
+            <td title="Clique para visualizar as rodadas"><a href="{% url "leagues:rounds" league.slug %}">{{ league.round_numbers }} rodadas</a></td>
           </tr>
         {% endfor %}
       </table>

@@ -40,7 +40,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Campeonatos <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 {% for league in leagues %}
-                  <li><a href="#">{{ league }}</a></li>
+                  <li><a href="{% url 'leagues:rounds' league.slug %}">{{ league }}</a></li>
                 {% endfor %}
               </ul>
             </li>

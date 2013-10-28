@@ -111,6 +111,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'futebolistica.context_processors.get_teams',
+    'futebolistica.context_processors.get_leagues',
 )
 
 INSTALLED_APPS = (
