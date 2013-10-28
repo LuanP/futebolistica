@@ -11,6 +11,8 @@ a, a:active, a:visited, a:link {
     color: #000;
 }
 
+/*
 .accordion-toggle:not(.collapsed) > .panel-heading {
     background-color: #CCC;
 }
+*/
