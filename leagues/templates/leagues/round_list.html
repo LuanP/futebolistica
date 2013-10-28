@@ -19,15 +19,17 @@
               <tr>
                 <th>Data</th>
                 <th>Jogo</th>
+                <th>Detalhes</th>
               </tr>
               {% for game in round.game_set.iterator %}
                 <tr title="Para maiores informações, clique sobre o jogo">
                   <td>{{ game.date|date:"d/m/Y - H:i" }}</td>
                   <td>
                     <a href="#" class="text-info">
-                      <abbr title="{{ game.team_home.name }}">{{ game.team_home.abbr }}</abbr> <img src="{{ game.team_home.get_flag_url }}" /> {{ game.team_home_score }} X {{ game.team_away_score }} <img src="{{ game.team_away.get_flag_url }}" /> <abbr title="{{ game.team_away.name }}">{{ game.team_away.abbr }}</abbr>
+                      <abbr title="{{ game.team_home.name }}">{{ game.team_home.abbr }}</abbr> <img src="{{ game.team_home.get_flag_url }}" /> {% if game.team_home_score %}{{ game.team_home_score }}{% endif %} X {% if game.team_away_score %}{{ game.team_away_score }}{% endif %} <img src="{{ game.team_away.get_flag_url }}" /> <abbr title="{{ game.team_away.name }}">{{ game.team_away.abbr }}</abbr>
                     </a>
                   </td>
+                  <td><a class="btn btn-default" href="{{ game.get_absolute_url }}">Visualizar detalhes</a></td>
                 </tr>
               {% endfor %}
             </table>
