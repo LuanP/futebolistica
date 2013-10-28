@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.utils.text import slugify
 from PIL import Image
 
 from futebolistica.settings import MEDIA_URL
@@ -11,6 +12,7 @@ class Team(models.Model):
     abbr = models.CharField(max_length=3)
     flag = models.ImageField(upload_to='flags')
     players = models.ManyToManyField('Player', through='TeamPlayer')
+    slug = models.SlugField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -19,6 +21,8 @@ class Team(models.Model):
         return u'{}{}'.format(MEDIA_URL, self.flag)
 
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+
         image = Image.open(self.flag)
         (width, height) = image.size
         image = image.resize((25, 23), Image.ANTIALIAS)

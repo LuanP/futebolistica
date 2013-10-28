@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <h2><img src="{{ team.get_flag_url}}" /> {{ team }}</h2>
+{% endblock %}
+
+{% block content %}
+<table class="table">
+  <tr>
+    <th>Jogador</th>
+    <th>Camisa</th>
+    <th>Posição</th>
+  </tr>
+  {% for player in team.players.all %}
+    <tr>
+      <td>{{ player.player.name }}</td>
+      <td>{{ player.shirt_number }}</td>
+      <td>{{ player.player.position }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}
