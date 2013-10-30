@@ -50,6 +50,12 @@
                 {% for team in teams %}
                   <li><a href="{{ team.get_absolute_url }}"><img src="{{ team.get_flag_url }}" /> {{ team.name }}</a></li>
                 {% endfor %}
+                <li class="divider"></li>
+                <li class="text-center">
+                  <a href="{% url 'teams:list' %}">
+                      <span class="btn btn-default text-center">Visualizar todos</span>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
