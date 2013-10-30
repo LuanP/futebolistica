@@ -10,6 +10,7 @@ class TeamListView(ListView):
 
 class TeamDetailView(DetailView):
     model = Team
+    context_object_name = 'chosen_team'
 
     def get_context_data(self, **kwargs):
         context = super(TeamDetailView, self).get_context_data(**kwargs)

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.core.urlresolvers import reverse
 from django.utils.text import slugify
 from PIL import Image
 
@@ -16,6 +17,9 @@ class Team(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('teams:detail', args=[self.slug, ])
 
     def get_flag_url(self):
         return u'{}{}'.format(MEDIA_URL, self.flag)
