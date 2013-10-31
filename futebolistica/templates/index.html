@@ -3,6 +3,7 @@
 {% block content %}
   <div class="row">
     <div class="col-lg-12">
+      <hr />
       <table class="table table-bordered">
         <th>Campeonato</th>
         <th>Data de início</th>
@@ -13,7 +14,7 @@
             <td>{{ league }}</td>
             <td>{{ league.period_start }}</td>
             <td>{{ league.period_end }}</td>
-            <td title="Clique para visualizar as rodadas"><a href="{% url "leagues:rounds" league.slug %}">{{ league.round_numbers }} rodadas</a></td>
+            <td class="text-center"><a href="{% url "leagues:rounds" league.slug %}" class="btn btn-default text-center">Visualizar rodadas</a></td>
           </tr>
         {% endfor %}
       </table>
