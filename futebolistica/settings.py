@@ -152,6 +152,9 @@ LOGGING = {
     }
 }
 
+if os.environ.get('HEROKU_PROD'):
+    from heroku_settings import *
+
 try:
     from .local_settings import *
 except ImportError:
