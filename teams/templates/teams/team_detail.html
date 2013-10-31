@@ -5,22 +5,26 @@
 {% endblock %}
 
 {% block content %}
-  {% for league, teamplayers in players_by_league %}
-    <hr />
-    <h3>{{ league }}</h3>
-    <table class="table table-bordered">
-      <tr>
-        <th>Jogador</th>
-        <th>Camisa</th>
-        <th>Posição</th>
-      </tr>
-        {% for player in teamplayers.all %}
+<div class="row">
+  <div class="col-lg-12">
+    {% for league, teamplayers in players_by_league %}
+      <hr />
+      <h3>{{ league }}</h3>
+      <table class="table table-bordered">
         <tr>
-          <td>{{ player.player.name }}</td>
-          <td>{{ player.shirt_number }}</td>
-          <td>{{ player.player.position }}</td>
+          <th>Jogador</th>
+          <th>Camisa</th>
+          <th>Posição</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% endfor %}
+          {% for player in teamplayers.all %}
+          <tr>
+            <td>{{ player.player.name }}</td>
+            <td>{{ player.shirt_number }}</td>
+            <td>{{ player.player.position }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
