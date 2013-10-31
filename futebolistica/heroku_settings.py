@@ -1,11 +1,8 @@
+import dj_database_url
 import os
 
 from settings import *
 
-
-INSTALLED_APPS += ('dj_database_url', )
-
-import dj_database_url
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -20,7 +17,7 @@ CWD = os.path.abspath(os.path.dirname(__file__))
 
 STATIC_URL = 'http://futebolistica.herokuapp.com/static/'
 
-ALLOWED_HOSTS = ['futebolistica.herokuapp.com', ]
+ALLOWED_HOSTS = ['*', ]
 
 STATIC_ROOT = os.path.join(CWD, 'static')
 
