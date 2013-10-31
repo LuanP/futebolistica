@@ -1,6 +1,5 @@
 Django
 django-suit
 pillow
-psycopg2
-dj-database-url
 gunicorn
+django-toolbelt
