@@ -11,7 +11,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.posgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'futebolistica',
         'USER': 'futebolistica',
         'PASSWORD': 'futebolistica',
