@@ -4,7 +4,7 @@ import os
 from settings import *
 
 
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ADMINS = (
