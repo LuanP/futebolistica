@@ -3,7 +3,7 @@
 {% block title %}<h2>{{ game.game_round }}</h2>{% endblock %}
 
 {% block content %}
-  <table class="table">
+  <table class="table table-striped">
     <tr>
       <th>Jogo</th>
       <th>Juíz</th>
@@ -15,6 +15,49 @@
       <td>{{ game.stadium }}</td>
     </tr>
   </table>
+
+  <hr />
+  <h3>Formação</h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <table class="table table-bordered pull-left">
+          <tr><th colspan="3" class="text-center">{{ game.team_home.name }}</th></tr>
+          <tr>
+            <th>Jogador</th>
+            <th>Posição</th>
+            <th>Camisa</th>
+          </tr>
+          {% for player in game.team_home.teamplayer_set.all %}
+            <tr>
+              <td>{{ player.player.name }}</td>
+              <td>{{ player.player.position }}</td>
+              <td>{{ player.shirt_number }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <table class="table table-bordered pull-right">
+          <tr><th colspan="3" class="text-center">{{ game.team_away.name }}</th></tr>
+          <tr>
+            <th>Jogador</th>
+            <th>Posição</th>
+            <th>Camisa</th>
+          </tr>
+          {% for player in game.team_away.teamplayer_set.all %}
+            <tr>
+              <td>{{ player.player.name }}</td>
+              <td>{{ player.player.position }}</td>
+              <td>{{ player.shirt_number }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
 
   <p class="text-center"><a href="{% url "leagues:rounds" game.game_round.league.slug %}" class="btn btn-default">Voltar</a></p>
 {% endblock %}
