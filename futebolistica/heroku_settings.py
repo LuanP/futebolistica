@@ -13,7 +13,7 @@ ADMINS = ADMINS = (
 
 MANAGERS = ADMINS
 
-CWD = os.path.dirname(os.path.abspath((__file__))
+CWD = os.path.dirname(os.path.abspath(__file__))
 
 ALLOWED_HOSTS = ['*', ]
 
