@@ -31,7 +31,7 @@
               <th>Posição</th>
               <th>Camisa</th>
             </tr>
-            {% for player in game.team_home.teamplayer_set.all %}
+            {% for player in team_home_players %}
               <tr>
                 <td>{{ player.player.name }}</td>
                 <td>{{ player.player.position }}</td>
@@ -49,7 +49,7 @@
               <th>Posição</th>
               <th>Camisa</th>
             </tr>
-            {% for player in game.team_away.teamplayer_set.all %}
+            {% for player in team_away_players %}
               <tr>
                 <td>{{ player.player.name }}</td>
                 <td>{{ player.player.position }}</td>
