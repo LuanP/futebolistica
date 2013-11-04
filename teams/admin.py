@@ -22,7 +22,7 @@ class PlayerAdmin(admin.ModelAdmin):
 
 
 class TeamPlayerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('player', 'team', 'league', 'shirt_number')
 
 
 admin.site.register(Team, TeamAdmin)

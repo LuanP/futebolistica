@@ -5,14 +5,14 @@ from django.core.urlresolvers import reverse
 
 
 class Stadium(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
 
     def __unicode__(self):
         return self.name
 
 
 class Judge(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
 
     def __unicode__(self):
         return self.name
@@ -27,7 +27,13 @@ class Game(models.Model):
     team_home_score = models.PositiveSmallIntegerField(null=True, blank=True)
     team_away_score = models.PositiveSmallIntegerField(null=True, blank=True)
     game_round = models.ForeignKey('leagues.Round')
-    long_slug = models.TextField(null=True, blank=True)
+    long_slug = models.TextField(unique=True, null=True, blank=True)
+
+    class Meta:
+        unique_together = (
+            ('stadium', 'date'),
+            ('judge', 'date')
+        )
 
     def __unicode__(self):
         score_1 = self.team_home_score

@@ -56,10 +56,11 @@ class TeamPlayer(models.Model):
     league = models.ForeignKey('leagues.League')
 
     class Meta:
+        ordering = ('league', 'team', 'player__name')
         unique_together = (
             ('league', 'player'),
             ('team', 'shirt_number', 'league'),
         )
 
     def __unicode__(self):
-        return u'{} - {}'.format(self.player, self.team)
+        return u'{} - {} ({})'.format(self.player, self.team, self.league)

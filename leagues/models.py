@@ -5,11 +5,11 @@ from django.utils.text import slugify
 
 
 class League(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     period_start = models.DateField()
     period_end = models.DateField()
     round_numbers = models.PositiveSmallIntegerField()
-    slug = models.SlugField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(max_length=200, null=True, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -22,10 +22,11 @@ class League(models.Model):
 class Round(models.Model):
     league = models.ForeignKey('League')
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(max_length=200, null=True, blank=True, unique=True)
 
     class Meta:
         ordering = ('league__name', 'name')
+        unique_together = ('league', 'name')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
