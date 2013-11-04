@@ -25,7 +25,7 @@ class Round(models.Model):
     slug = models.SlugField(max_length=200, null=True, blank=True)
 
     class Meta:
-        ordering = ('league', )
+        ordering = ('league__name', 'name')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
