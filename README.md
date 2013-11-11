@@ -4,7 +4,7 @@ futebolistica
 Software for management of soccer games
 -------------
 
-This software is a school project with learning intents only.
+This software is a school project with learning purposes only.
 Developed with Python + Django gives you the opportunity to create and manage soccer leagues.
 Easy to run and with a very simple code.
 
