@@ -5,6 +5,10 @@ Software for management of soccer games
 -------------
 
 This software is a school project with learning intents only.
+Developed with Python + Django gives you the opportunity to create and manage soccer leagues.
+Easy to run and with a very simple code.
+
+Feel free to edit, upgrade and send pull requests.
 
 
 Live demo
@@ -15,6 +19,17 @@ http://futebolistica.herokuapp.com
 
 Install
 -------------
+
+Prerequisites
+
+* PIL
+* Git
+* pip
+
+Recommended
+
+* virtualenv
+
 
 Clone the repository
 
