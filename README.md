@@ -30,7 +30,7 @@ Now run `syncdb` on the folder where is the `manage.py` file
 
 Done.
 
-NOTE
+Note
 ----
-You can create a superuser during the syncdb and fill the database with data on admin or
+You can create a superuser during the `syncdb` and fill the database with data on admin or
 create one on hand later with the `shell`.
